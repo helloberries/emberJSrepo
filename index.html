@@ -10,25 +10,22 @@
       <section id="todoapp">
         <header id="header">
           <h1>todos</h1>
-          <input type="text" placeholder="What needs to be done?" id="new-todo">
+          {{input
+            type="text"
+            id="new-todo"
+            placeholder="What needs to be done?"
+            value=newTitle
+            action="createTodo"}}
         </header>
         <section id="main">
           <ul id="todo-list">
-            <li class="completed">
-              <input class="toggle" type="checkbox">
-              <label>Learn Ember.js</label>
+            {{#each todo in model itemController="todo"}}
+            <li {{bind-attr class="todo.isCompleted:completed"}}>
+              <input checked=todo.isCompleted class="toggle" type="checkbox">
+              <label>{{todo.title}}</label>
               <button class="destroy"></button>
             </li>
-            <li>
-              <input class="toggle" type="checkbox">
-              <label>...</label>
-              <button class="destroy"></button>
-            </li>
-            <li>
-              <input class="toggle" type="checkbox">
-              <label>Profit!</label>
-              <button class="destroy"></button>
-            </li>
+            {{/each}}
           </ul>
           <input type="checkbox" id="toggle-all">
         </section>
@@ -51,5 +48,8 @@
     <script src="js/libs/ember-data.js"></script>
     <script src="js/application.js"></script>
     <script src="js/router.js"></script>
+    <script src="js/models/todo.js"></script>
+    <script src="js/controllers/todos_controller.js" charset="utf-8"></script>
+    <script src="js/controllers/todo_controller.js" charset="utf-8"></script>
   </body>
 </html>

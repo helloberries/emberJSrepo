@@ -6,16 +6,11 @@
     <link rel="stylesheet" href="style.css">
   </head>
   <body>
-    <script type="text/x-handlerbars" data-template-name="todos">
+    <script type="text/x-handlebars" data-template-name="todos">
       <section id="todoapp">
         <header id="header">
           <h1>todos</h1>
-          {{input
-            type="text"
-            id="new-todo"
-            placeholder="What needs to be done?"
-            value=newTitle
-            action="createTodo"}}
+          {{input type="text" id="new-todo" placeholder="What needs to be done?" value=newTitle action="createTodo"}}
         </header>
         <section id="main">
           <ul id="todo-list">
@@ -29,7 +24,10 @@
           </ul>
           <input type="checkbox" id="toggle-all">
         </section>
-        <footer id="footer"><span id="todo-count"><strong>2</strong> todos left</span>
+        <footer id="footer">
+        <span id="todo-count">
+          <strong>{{remaining}}</strong> {{inflection}} left
+        </span>
           <ul id="filters">
             <li><a class="selected" href="all">All</a></li>
             <li><a href="active">Active</a></li>
@@ -49,7 +47,7 @@
     <script src="js/application.js"></script>
     <script src="js/router.js"></script>
     <script src="js/models/todo.js"></script>
-    <script src="js/controllers/todos_controller.js" charset="utf-8"></script>
     <script src="js/controllers/todo_controller.js" charset="utf-8"></script>
+    <script src="js/controllers/todos_controller.js" charset="utf-8"></script>
   </body>
 </html>

@@ -1,5 +1,5 @@
 Todos.TodosController = Ember.ArrayController.extend({
-  action: {
+  actions: {
     createTodo: function () {
       // Get the todo title set by the "New Todo" text field
       var title = this.get('newTitle');
